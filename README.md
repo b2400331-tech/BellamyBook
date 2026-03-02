@@ -2,6 +2,20 @@
 
 **Run your own social network** with Docker. No source code required — use pre-built images, set your domain and secrets in `.env`, and go live.
 
+<p align="center">
+  <a href="https://bellamybook.com/landing"><img src="https://img.shields.io/badge/Landing-View_Product-2ea44f?style=for-the-badge" alt="Landing"></a>
+  <a href="https://bellamybook.com"><img src="https://img.shields.io/badge/Demo-Try_Live-0969da?style=for-the-badge" alt="Demo"></a>
+  <a href="https://docs.bellamybook.com"><img src="https://img.shields.io/badge/Docs-Documentation-8250df?style=for-the-badge" alt="Docs"></a>
+  <a href="https://hub.docker.com/u/bellamy31"><img src="https://img.shields.io/badge/Docker_Hub-Images-2496ed?style=for-the-badge&logo=docker" alt="Docker Hub"></a>
+  <a href="https://bellamybook.com/bellamy"><img src="https://img.shields.io/badge/Author_%26_Contact-Work_With_Us-6e7781?style=for-the-badge" alt="Author & Contact"></a>
+  <a href="https://buymeacoffee.com/nmtri31082x"><img src="https://img.shields.io/badge/Buy_Me_a_Coffee-Support-ffdd00?style=for-the-badge&logo=buymeacoffee" alt="Buy Me a Coffee"></a>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Proprietary_%28Community_Edition%29-6e7781?style=flat-square" alt="License"></a>
+  <a href="COPYRIGHT"><img src="https://img.shields.io/badge/Copyright-2025%E2%80%932026-6e7781?style=flat-square" alt="Copyright"></a>
+</p>
+
 ---
 
 ## What is Bellamy Book?
@@ -14,7 +28,8 @@
 | [**Demo**](https://bellamybook.com) | Try the app live |
 | [**Docs**](https://docs.bellamybook.com) | Full documentation: installation, configuration, R2, SMTP, Turnstile, LiveKit, Google Login, and more |
 | [**Docker Hub**](https://hub.docker.com/u/bellamy31) | Pre-built images (`bellamy31/bellamybook-*`) for self-hosting |
-| [**Support the project**](https://buymeacoffee.com/nmtri31082x) | Buy Me a Coffee — support development |
+| [**Author & Contact**](https://bellamybook.com/bellamy) | Author page — get in touch for work or collaboration |
+| [**Buy Me a Coffee**](https://buymeacoffee.com/nmtri31082x) | Support the project |
 
 ---
 
@@ -33,7 +48,21 @@
 
 Clone or download this folder (the `dockerPublish` bundle). You need: `docker-compose.yml`, `.env.example`, and the config directories (`traefik/`, `primary/`, `replica/`, `scripts/`, `opensearch-config/`).
 
-### 2. Configure environment
+### 2. Configure environment (3 env files)
+
+This kit includes **three** environment templates:
+
+| File | Who uses it | Purpose |
+|------|-------------|---------|
+| **`.env.example`** | **Self-hosters** (you) | Main config — copy to `.env` and set your domain, secrets, databases. Used by Docker Compose and all services. |
+| **`.env.frontend.example`** | **Publishers** (if you build images) | Frontend build-time config. Copy to `dockerProd/.env.frontend` when building the frontend image. |
+| **`.env.admin.example`** | **Publishers** (if you build images) | Admin build-time config. Copy to `dockerProd/.env.admin` when building the admin image. |
+
+**If you are self-hosting with pre-built images:** you only need to create **`.env`** from `.env.example`. The other two are for image publishers.
+
+> **Read the documentation** for clear **step-by-step** instructions: [Self-Host with Pre-Built Images](https://docs.bellamybook.com/docs/self-host/installation/docker-publish) and [Environment Configuration](https://docs.bellamybook.com/docs/self-host/configuration/environment). The docs explain every variable, the configuration checklist, and optional services (JWT, storage, SMTP, Turnstile, LiveKit, Google Login, etc.).
+
+**Quick setup (self-hosters):**
 
 ```bash
 cp .env.example .env
@@ -45,7 +74,7 @@ Edit `.env` and set at least:
 - **Your domain:** `API_PUBLIC_URL`, `FRONTEND_PUBLIC_URL`, `ADMIN_PUBLIC_URL`, and all `TRAEFIK_*_HOST` to your hostnames.
 - **Secrets:** Replace every `CHANGE_ME_*` — Postgres, Redis, MongoDB, Neo4j, RabbitMQ, MinIO, and **JWT** (`JwtSettings__Secret`, e.g. `openssl rand -base64 64`).
 
-See [Environment Configuration](https://docs.bellamybook.com/docs/self-host/configuration/environment) and the [configuration checklist](https://docs.bellamybook.com/docs/self-host/configuration/environment#configuration-checklist) in the docs for full details.
+For full details and step-by-step guidance, see the [Environment](https://docs.bellamybook.com/docs/self-host/configuration/environment) and [configuration checklist](https://docs.bellamybook.com/docs/self-host/configuration/environment#configuration-checklist) in the docs.
 
 ### 3. Create MongoDB keyfile (required)
 
@@ -93,6 +122,8 @@ Full step-by-step and optional services (R2, SMTP, Turnstile, Google Login, Live
 ---
 
 ## Configuration overview
+
+For **step-by-step** setup of the three env files and all options, read the documentation: [Self-Host with Pre-Built Images](https://docs.bellamybook.com/docs/self-host/installation/docker-publish) and [Environment](https://docs.bellamybook.com/docs/self-host/configuration/environment).
 
 | What | Docs |
 |------|------|
@@ -163,6 +194,24 @@ Infrastructure (PostgreSQL, Redis, MongoDB, Kafka, etc.) uses standard public im
 
 ---
 
+## License
+
+This self-host kit is released under a **proprietary license** (Bellamy Book Community Edition). You may self-host, deploy for internal or commercial use, and use the Software with up to 500 registered users under the terms of the license.
+
+- **[LICENSE](LICENSE)** — Full license text (grant, restrictions, user limitation, disclaimer).
+- **[COPYRIGHT](COPYRIGHT)** — Copyright and ownership notice.
+
+Use beyond 500 registered users or other commercial arrangements may require a separate license. See [LICENSE](LICENSE) for details.
+
+---
+
 ## Links
 
-- [Landing](https://bellamybook.com/landing) · [Demo](https://bellamybook.com) · [Documentation](https://docs.bellamybook.com) · [Docker Hub](https://hub.docker.com/u/bellamy31) · [Support (Buy Me a Coffee)](https://buymeacoffee.com/nmtri31082x)
+<p align="center">
+  <a href="https://bellamybook.com/landing">Landing</a> ·
+  <a href="https://bellamybook.com">Demo</a> ·
+  <a href="https://docs.bellamybook.com">Documentation</a> ·
+  <a href="https://hub.docker.com/u/bellamy31">Docker Hub</a> ·
+  <a href="https://bellamybook.com/bellamy">Author & Contact</a> ·
+  <a href="https://buymeacoffee.com/nmtri31082x">Buy Me a Coffee</a>
+</p>
