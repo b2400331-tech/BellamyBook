@@ -1,0 +1,4 @@
+# Self-host secrets - never commit
+.env
+*.pem
+traefik/acme.json
